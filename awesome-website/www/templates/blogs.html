@@ -1,0 +1,40 @@
+{% extends '__base__.html' %}
+
+{% block title %}日志{% endblock %}
+
+{% block content %}
+
+    <div class="uk-width-medium-3-4">
+        {% for blog in blogs %}
+            <article class="uk-article">
+                <h2><a href="/blog/{{ blog.id }}">{{ blog.name }}</a></h2>
+                <p class="uk-article-meta">发表于{{ blog.created_at|datetime }}</p>
+                <p>{{ blog.summary }}</p>
+                <p><a href="/blog/{{ blog.id }}">继续阅读 <i class="uk-icon-angle-double-right"></i></a></p>
+            </article>
+            <hr class="uk-article-divider">
+        {% endfor %}
+    </div>
+
+    <!--uk-visible@m是大于中等尺寸屏幕时显示的UI-->
+    <!--右边侧导航栏-->
+    <div class="uk-width-1-4 uk-visible@m">
+        <h4>谷歌搜索</h4>
+        <FORM method=GET action="https://www.google.com/s?wd=">
+            <div class="uk-inline">
+                <a class="uk-form-icon uk-form-icon-flip" href="#" uk-icon="search"></a>
+                <INPUT class="uk-input" TYPE=text name=wd placeholder="谷歌搜索" size=31 maxlength=255 value="">
+            </div>
+            <button TYPE=submit name="" class="uk-button uk-button-default"> SEARCH</button>
+        </FORM>
+
+        <h4>友情链接</h4>
+        <ul class="uk-list uk-list-divider">
+            <li><a target="_blank" href="https://github.com">同性交友Github</a></li>
+            <li><a target="_blank" href="https://www.liaoxuefeng.com">廖雪峰</a></li>
+            <li><a target="_blank" href="https://aodabo.tech/">凹大卜</a></li>            
+        </ul>
+    </div>
+   
+
+{% endblock %}
