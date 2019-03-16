@@ -5,13 +5,6 @@
 <!--jinja2 beforehead 块内容替换-->
 {% block beforehead %}
 <!--script中构建vue,向后端API提交日志评论相关数据-->
-
-<div>
-    <span id="busuanzi_container_page_pv">
-        This Blog Viewd <span id="busuanzi_value_page_pv"></span> times.
-    </span>
-</div>
-
 <script>
 
 var comment_url = '/api/blogs/{{ blog.id }}/comments';
